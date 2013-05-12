@@ -1,0 +1,39 @@
+
+<div class="row">
+  <div class="columns">
+      <h1><object data="../assets/bike.svg" type="image/svg+xml"></object> Bike On <small>Trip Detail</small> </h1>
+<hr>
+<h3>
+     Max Speed: <%= @max_speed %><br>
+     Altitude Change <%= @altitude_change %><br>
+
+
+<small>Speed</small>
+<div id="speed" style="height: 250px;"></div>
+
+
+
+  </div>
+
+</div>
+
+<script>
+new Morris.Area({
+  // ID of the element in which to draw the chart.
+  element: 'speed',
+  // Chart data records -- each entry in this array corresponds to a point on
+  // the chart.
+  data:<%= @morris_data[1..-1].to_json.html_safe %>,
+  // The name of the data record attribute that contains x-values.
+  xkey: ['time'],
+  // A list of names of data record attributes that contain y-values.
+  ykeys: ['speed'],
+  // Labels for the ykeys -- will be displayed when you hover over the
+  // chart.
+  labels: ['speed'],
+  pointSize: "0",
+});
+
+
+
+</script>
