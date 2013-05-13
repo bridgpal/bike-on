@@ -1,4 +1,5 @@
 
+
 <div class="row">
   <div class="columns">
       <h1><object data="../assets/bike.svg" type="image/svg+xml"></object> Bike On <small>Trip Detail</small> </h1>
@@ -25,7 +26,7 @@ new Morris.Area({
   labels: ['Speed'],
   pointSize: "0",
   yLabelFormat: function (y) { return y.toString() + 'mph'; },
-
+  hideHover: 'auto'
 });
 
 new Morris.Area({
@@ -36,8 +37,8 @@ new Morris.Area({
   labels: ['Altitude'],
   pointSize: "0",
   lineColors: ['#da7000'],
-  yLabelFormat: function (y) { return y.toString() + 'ft'; }
-
+  yLabelFormat: function (y) { return y.toString() + 'ft'; },
+  hideHover: 'auto'
 });
 
 
