@@ -4,8 +4,8 @@
       <h1><object data="../assets/bike.svg" type="image/svg+xml"></object> Bike On <small>Trip Detail</small> </h1>
       <hr>
       <h3>
-        Max Speed: <%= @max_speed %><br>
-        Altitude Change <%= @altitude_change %><br>
+        Max Speed: <%= meters_to_miles(@max_speed) %> MPH<br>
+        Altitude Change: <%= meters_to_feet(@altitude_change) %> FT<br>
 
       <small>Speed</small>
       <div id="speed" style="height: 250px;"></div>
@@ -24,6 +24,8 @@ new Morris.Area({
   ykeys: ['speed'],
   labels: ['Speed'],
   pointSize: "0",
+  yLabelFormat: function (y) { return y.toString() + 'mph'; },
+
 });
 
 new Morris.Area({
@@ -34,6 +36,8 @@ new Morris.Area({
   labels: ['Altitude'],
   pointSize: "0",
   lineColors: ['#da7000'],
+  yLabelFormat: function (y) { return y.toString() + 'ft'; }
+
 });
 
 

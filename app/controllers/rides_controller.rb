@@ -1,5 +1,7 @@
 class RidesController < ApplicationController
 
+include RidesHelper
+
   def index
     query = Parse::Query.new("Ride")
     query.order_by = "createdAt"
@@ -17,10 +19,8 @@ class RidesController < ApplicationController
     altitude = data.map {|d| d["altitude"]}
     @altitude_change = altitude.max - altitude.min
 
-
-   @morris_data = data.map {|d| { time: Time.at(d["timestamp"].to_i), speed: d["speed"], altitude: d["altitude"] } }
+    @morris_data = data.map {|d| { time: format_time(d["timestamp"]), speed: meters_to_miles(d["speed"]), altitude: meters_to_feet(d["altitude"]) } }
 
   end
-
 
 end
