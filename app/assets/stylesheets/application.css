@@ -22,3 +22,13 @@
   border-color: #f0f;
   border: solid;
 }
+
+table {
+  width: 100%;
+
+}
+
+table thead{
+  margin-right: auto;
+  margin-left: auto;
+}

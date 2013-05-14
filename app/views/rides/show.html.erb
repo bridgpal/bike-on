@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
 
+
 <div class="row">
   <div class="twelve columns">
       <h1><object data="../assets/bike.svg" type="image/svg+xml"></object> Bike On <small>Trip Detail</small> </h1>
@@ -10,13 +11,24 @@
       <div class="row">
         <div class="large-5 columns">
 
-          <h3>
-            Max Speed: <%= meters_to_miles(@max_speed) %> MPH<br>
-          Altitude Change: <%= meters_to_feet(@altitude_change) %> FT<br>
+            <table>
+
+            <tr><td>Date</td><td> <%= page_time(@ride["createdAt"]) %> </td></tr>
+            <tr><td>Duration</td><td> <%= (@ride["duration"]/60).round(2)%> min</td></tr>
+
+            <tr><td>Altitude Gained</td><td> <%= meters_to_feet(@ride["altitudeGained"]) %> ft</td></tr>
+            <tr><td>Average Speed</td><td> <%= meters_to_miles(@ride["averageSpeed"]) %> mph</td></tr>
+            <tr><td>Max Speed</td><td> <%= meters_to_miles(@ride["maxSpeed"]) %> mph</td></tr>
+            <tr><td>Distance</td><td> <%= meters_to_miles(@ride["distance"]) %> mi</td></tr>
+            </table>
+
+
 
         </div>
         <div class="large-7 columns">
+
           <div id="map"></div>
+
         </div>
       </div>
         <h3>
@@ -31,6 +43,7 @@
 
 
 <script>
+
 
     var map = L.map('map').setView([37.751034, -122.416925], 13);
 
