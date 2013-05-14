@@ -20,7 +20,7 @@ include RidesHelper
     @altitude_change = altitude.max - altitude.min
 
     @morris_data = data.map {|d| { time: format_time(d["timestamp"]), speed: meters_to_miles(d["speed"]), altitude: meters_to_feet(d["altitude"]) } }.each_slice(2).map(&:first)
-
+    @leaflet_data = data.map {|d|  [d["lat"], d["long"]] }
   end
 
 end

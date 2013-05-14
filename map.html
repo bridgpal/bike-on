@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>map</title>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+ <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+</head>
+<body>
+  <div id="map" style="width: 500px; height: 500px"></div>
+
+  <script src="../dist/leaflet.js"></script>
+  <script>
+
+    var map = L.map('map').setView([37.751034, -122.416925], 13);
+
+    L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+    }).addTo(map);
+
+
+  </script>
+</body>
+</html>

@@ -1,21 +1,48 @@
 
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
 
 <div class="row">
-  <div class="columns">
+  <div class="twelve columns">
       <h1><object data="../assets/bike.svg" type="image/svg+xml"></object> Bike On <small>Trip Detail</small> </h1>
       <hr>
-      <h3>
-        Max Speed: <%= meters_to_miles(@max_speed) %> MPH<br>
-        Altitude Change: <%= meters_to_feet(@altitude_change) %> FT<br>
 
-      <small>Speed</small>
-      <div id="speed" style="height: 250px;"></div>
+      <div class="row">
+        <div class="large-5 columns">
 
-      <small>Altitude</small>
-      <div id="altitude" style="height: 250px;"></div>
+          <h3>
+            Max Speed: <%= meters_to_miles(@max_speed) %> MPH<br>
+          Altitude Change: <%= meters_to_feet(@altitude_change) %> FT<br>
+
+        </div>
+        <div class="large-7 columns">
+          <div id="map"></div>
+        </div>
+      </div>
+        <h3>
+        <small>Speed</small>
+          <div id="speed" style="height: 250px;"></div>
+
+        <small>Altitude</small>
+          <div id="altitude" style="height: 250px;"></div>
 
   </div>
 </div>
+
+
+<script>
+
+    var map = L.map('map').setView([37.751034, -122.416925], 13);
+
+    L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
+    }).addTo(map);
+
+       var latlngs = <%= @leaflet_data %>;
+   var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+   map.fitBounds(polyline.getBounds());
+
+
+</script>
 
 <script>
 new Morris.Area({

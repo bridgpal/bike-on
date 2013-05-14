@@ -11,3 +11,14 @@
  *= require_self
  *= require_tree .
  */
+
+#map {
+  width: auto;
+  height: 350px;
+
+}
+.columns2 {
+  border:1px;
+  border-color: #f0f;
+  border: solid;
+}
