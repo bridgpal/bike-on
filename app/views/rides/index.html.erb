@@ -4,14 +4,10 @@
 
   <h1><object data="../assets/bike.svg" type="image/svg+xml"> </object> <%= link_to 'Bike On', root_url %> <small> Recent rides</small> </h1>
 <hr>
-    <h3>
+    <h3 class="mono">
       <% @rides.each do |ride| %>
 
         <%= link_to page_time(ride["createdAt"]) , :action => "show", :id => ride["objectId"] %>
-
-          <%  if ride["shutoffReason"] == "Low signal" %>
-            <span class="radius  alert label">Low Singal</span>
-          <% end %>
           <br>
       <% end %>
 
