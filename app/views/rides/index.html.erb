@@ -2,7 +2,7 @@
 <div class="row ">
   <div class="columns">
 
-  <h1><object data="../assets/bike.svg" type="image/svg+xml"> </object> Bike On <small> Recent rides</small> </h1>
+  <h1><object data="../assets/bike.svg" type="image/svg+xml"> </object> <%= link_to 'Bike On', root_url %> <small> Recent rides</small> </h1>
 <hr>
     <h3>
       <% @rides.each do |ride| %>
