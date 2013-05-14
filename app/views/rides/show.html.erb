@@ -1,6 +1,7 @@
 
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+<script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.1"></script>
 
 
 <div class="row">
@@ -48,18 +49,10 @@
 
 
 <script>
-
-
-    var map = L.map('map').setView([37.751034, -122.416925], 13);
-
-    L.tileLayer('http://{s}.tile.cloudmade.com/BC9A493B41014CAABB98F0471D759707/997/256/{z}/{x}/{y}.png', {
-    }).addTo(map);
-
-       var latlngs = <%= @leaflet_data %>;
-   var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
-   map.fitBounds(polyline.getBounds());
-
-
+  var map = L.map('map').addLayer(new L.StamenTileLayer("toner-lite"));
+  var latlngs = <%= @leaflet_data %>;
+  var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+  map.fitBounds(polyline.getBounds());
 </script>
 
 <script>
