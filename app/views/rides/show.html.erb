@@ -17,9 +17,9 @@
             <tr><td>Duration</td><td> <%= (@ride["duration"]/60).round(2)%> min</td></tr>
 
             <tr><td>Altitude Gained</td><td> <%= meters_to_feet(@ride["altitudeGained"]) %> ft</td></tr>
-            <tr><td>Average Speed</td><td> <%= meters_to_miles(@ride["averageSpeed"]) %> mph</td></tr>
+            <tr><td>Average Speed</td><td> <%= (@ride["averageSpeed"]).round(2) %> mph</td></tr>
             <tr><td>Max Speed</td><td> <%= meters_to_miles(@ride["maxSpeed"]) %> mph</td></tr>
-            <tr><td>Distance</td><td> <%= meters_to_miles(@ride["distance"]) %> mi</td></tr>
+            <tr><td>Distance</td><td> <%= meters_in_miles(@ride["distance"]) %> mi</td></tr>
             </table>
 
 

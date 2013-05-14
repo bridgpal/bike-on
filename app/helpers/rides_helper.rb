@@ -6,11 +6,15 @@ module RidesHelper
   end
 
   def meters_to_miles(meters)
-  return (meters * 2.23694).round(2)
+    return (meters * 2.23694).round(2)
   end
 
   def meters_to_feet(meters)
     return (meters * 3.28084).round(2)
+  end
+
+  def meters_in_miles(meters)
+    return (meters * 0.000621371).round(2)
   end
 
   def format_time(time)
