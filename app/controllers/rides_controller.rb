@@ -6,6 +6,7 @@ include RidesHelper
     query = Parse::Query.new("Ride")
     query.order_by = "createdAt"
     query.order = :descending
+    query.include = "creator"
     @rides = query.get
   end
 
