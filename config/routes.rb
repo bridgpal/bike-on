@@ -15,6 +15,7 @@ BikeOn::Application.routes.draw do
       resources :rides
       root :to => 'rides#index'
       get 'rides/:id/speed' => 'rides#speed'
+      get 'rides/:id/statusboard' => 'rides#show'
       #get 'rides/:id' => 'rides#view'
 
   # Sample resource route with options:
