@@ -1,0 +1,22 @@
+<style>
+body,html {
+width:100%;
+height: 100%;
+}
+
+</style>
+<div id="speed" style="height: 100%; width:100%"></div>
+
+<script>
+new Morris.Area({
+  element: 'speed',
+  data:<%= @morris_data[1..-1].to_json.html_safe %>,
+  xkey: ['time'],
+  ykeys: ['speed'],
+  labels: ['Speed'],
+  pointSize: "0",
+  yLabelFormat: function (y) { return y.toString() + 'mph'; },
+  hideHover: 'auto'
+});
+
+</script>

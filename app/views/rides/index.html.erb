@@ -4,17 +4,30 @@
 
   <h1><object data="../assets/bike.svg" type="image/svg+xml"> </object> <%= link_to 'Bike On', root_url %> <small> Recent rides</small> </h1>
 <hr>
-    <h3>
-      <% @rides.each do |ride| %>
-
-        <%= link_to page_time(ride["createdAt"]) , :action => "show", :id => ride["objectId"] %>
-        <small>
-
-          <%= [ride["creator"]["firstName"],ride["creator"]["lastName"]].join(' ') if ride["creator"] %>
-        </small><br>
+    <div class="row">
+        <div class="large-8 columns">
+              <h3>
+                <% @rides.each do |ride| %>
+                  <%= link_to page_time(ride["createdAt"]) , :action => "show", :id => ride["objectId"] %>
+                  <small><%= [ride["creator"]["firstName"],ride["creator"]["lastName"]].join(' ') if ride["creator"] %></small><br>
 
 
-      <% end %>
+                <% end %>
+          </div>
+
+          <div class="large-4 columns">
+              <div class="panel"><h1>12
+                <h3 class="subheader">Fastest Speed
+              </div>
+
+               <div class="panel"><h1>34
+                <h3 class="subheader">Longest Distance
+              </div>
+
+
+          </div>
+
+        </div>
 
 
   </div>

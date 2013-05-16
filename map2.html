@@ -15,8 +15,7 @@
   var map = mapbox.auto('map', 'bridgpal.map-sednqhsd');
    map('map').setView([51.505, -0.09], 13);
 
-   var latlngs = <%= @leaflet_data %>;
-   var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+
 
 </script>
 
